@@ -1,0 +1,24 @@
+body {
+    background-color: #35363A;
+}
+
+.profile {}
+
+#text {
+    color: #FFFFFF;
+}
+
+span {
+    color: blue;
+}
+
+h1 {
+    font-size: 20px;
+    color: '#f00';
+    margin-top: 12em;
+}
+
+.search {
+    display: block;
+    margin: 0 auto;
+}
