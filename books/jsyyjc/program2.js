@@ -1,4 +1,7 @@
 
+document.writeln('</br>');
+document.writeln('第二章');
+document.writeln('</br>');
 
 var flight={
 
