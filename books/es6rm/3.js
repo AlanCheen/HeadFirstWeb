@@ -81,3 +81,45 @@ s === Number.prototype.toString // true
 let { toString: s } = true;
 s === Boolean.prototype.toString // true
 
+//函数参数解构
+
+function add([x, y]) {
+    return x + y;
+}
+add([1, 2]);//3
+
+function move({ x, y } = { x: 0, y: 0 }) {
+    return [x, y];
+}
+move({ x: 3, y: 8 });//[3,8]
+move({ x: 3 });//[3,undefined]
+move({});//[undefined,undefined]
+move();//[0,0]
+
+let x = 1;
+let y = 2;
+[x, y] = [y, x];
+
+function example() {
+    return [1, 2, 3]
+}
+let [a, b, c] = example();
+
+function example2() {
+    return {
+        foo: 1,
+        bar: 2
+    }
+}
+
+let { foo, bar } = example2();
+
+
+const map = new Map();
+
+map.set('first','hello');
+map.set('second','world');
+
+for(let [key,value] of map){
+    console.log(key + " is " + value);
+}

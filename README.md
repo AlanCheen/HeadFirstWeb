@@ -2,16 +2,23 @@
 
 
 ## books
-books 下面是书籍里的代码
 
-jsyyjc 是 《JavaScript 语言精粹》
+books 目录下面是书籍里的代码。
+
+- jsyyjc ：《JavaScript 语言精粹》
+- es6rm ：《ECMAScript 6 入门》
 
 ## projects 
 
 projects 打算放仿写的项目
 
+## ts
+
+学习 ts 用的。
 
 ## 其他
+
+其他目录比较杂
 
 index.html ：这个文件通常将包括你的主页内容，也就是说，人们第一次进入你的网页看到的文本和图像。使用你的文本编辑器，创建一个名为 index.html 的新文件并将其保存在 test-site 文件夹。
 images 文件夹 ：这个文件夹包含你网页上所有使用的图像。在 test-site 文件夹内创建一个 images 文件夹。
