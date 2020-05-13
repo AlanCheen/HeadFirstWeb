@@ -7,6 +7,13 @@ books 目录下面是书籍里的代码。
 
 - jsyyjc ：《JavaScript 语言精粹》
 - es6rm ：《ECMAScript 6 入门》
+- srreactjsz：《深入 React 技术栈》
+
+## jsjc
+
+JavaScript 教程，的练习代码
+
+教程地址：https://wangdoc.com/javascript/stdlib/attributes.html
 
 ## projects 
 
