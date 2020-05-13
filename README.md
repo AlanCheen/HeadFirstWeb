@@ -33,7 +33,11 @@ projects 打算放仿写的项目
 
 是用 create-react-app 创建的项目工程，方便用来学 react 官方教程的。
 
+cd 到目录执行 npm start 可以查看效果。
+
 教程地址：https://zh-hans.reactjs.org/tutorial/tutorial.html#setup-for-the-tutorial
+
+官方 codepen ：https://codepen.io/gaearon/pen/gWWZgR?editors=0010
 
 ## 其他
 
