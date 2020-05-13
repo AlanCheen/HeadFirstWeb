@@ -23,6 +23,18 @@ projects 打算放仿写的项目
 
 学习 ts 用的。
 
+## react
+
+学 react 的，代码都写在 html 的 script 标签里。
+
+由于没有 webpack 配置，只能写简单的 react。
+
+## react-tutorial
+
+是用 create-react-app 创建的项目工程，方便用来学 react 官方教程的。
+
+教程地址：https://zh-hans.reactjs.org/tutorial/tutorial.html#setup-for-the-tutorial
+
 ## 其他
 
 其他目录比较杂
