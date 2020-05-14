@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 16新特性</title>
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <div id="list"></div>
+    <div id="string"></div>
+    <div id="error"></div>
+    <div id="context"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        //支持数组
+        class ListComponent extends React.Component {
+            render() {
+                return [
+                    <li>Android</li>,
+                    <li>Kotlin</li>,
+                    <li>Flutter</li>,
+                ]
+            };
+        }
+
+        ReactDOM.render(
+            <ListComponent />,
+            document.getElementById('list')
+        );
+
+        //支持 string
+        class StringComponent extends React.Component {
+            render() {
+                return "这是个 render 返回 string 的组件。"
+            };
+        }
+
+        ReactDOM.render(
+            <StringComponent />,
+            document.getElementById('string')
+        );
+
+        //错误处理
+        class ErrorBoundary extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    hasError: false,
+                }
+            }
+
+            componentDidCatch(error, info) {
+                this.setState({
+                    hasError: true,
+                });
+                console.log(error, info);
+            }
+
+            render() {
+                if (this.state.hasError) {
+                    return (
+                        <div>Ooops,something went wrong.</div>
+                    );
+                }
+                return this.props.children;
+            };
+        }
+
+        const Profile = ({ user }) => <div>name:{user.name}</div>;
+
+        class ErrorApp extends React.Component {
+
+            constructor(props) {
+                super(props)
+                this.state = {
+                    user: {
+                        name: '程序亦非猿',
+                    },
+                }
+            }
+
+            render() {
+                return (
+                    <div>
+                        <ErrorBoundary >
+                            <Profile user={this.state.user} />
+                        </ErrorBoundary>
+                        <button onClick={() => { this.setState({ user: null }) }}>点击我更新</button>
+                    </div>
+                );
+            };
+        }
+
+        ReactDOM.render(
+            <ErrorApp />,
+            document.getElementById('error')
+        )
+        //-----error---
+
+
+        class ParentContext extends React.Component {
+
+            getChildContext() {
+                return {
+                    greeting: this.greeting,
+                }
+            }
+
+            greeting() {
+                alert('hi greeting called');
+            }
+
+            render() {
+                return (
+                    <div>
+                        <ChildContext />
+                    </div>
+                );
+            };
+        }
+
+        ParentContext.childContextTypes = {
+            greeting: PropTypes.func,
+        }
+
+        class ChildContext extends React.Component {
+
+            constructor(props) {
+                super(props)
+                this.state = {
+
+                }
+            }
+
+            handleClick() {
+                this.context.greeting();
+            }
+
+            render() {
+                return (
+                    <button onClick={() => { this.handleClick() }}>这个是子组件，点击会调用 Parent 的greeting</button>
+                );
+            };
+        }
+
+        ChildContext.contextTypes = {
+            greeting: PropTypes.func,
+        }
+
+        ReactDOM.render(
+            <ParentContext />,
+            document.getElementById('context')
+        )
+
+        class App extends React.Component {
+
+            render() {
+
+                const style = {
+                    fontSize: "30px",
+                    backgroundColor: "blue",
+                }
+
+                return (
+                    <div style={style}>《React 进阶之路》React 16 新特性 !</div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高阶组件</title>
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <div id="hoc"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        
+        class MyComponent extends React.Component {
+            render () {
+                return (
+                    <div>
+                        {this.props.data}
+                    </div>
+                )
+            }
+        }
+
+        function withPersistentData(WrappedComponent){
+            return class extends React.Component{
+
+                componentWillMount() {
+                    let data = localStorage.getItem('data');
+                    this.setState({ data });
+                }
+
+                render() {
+                    return (
+                        <WrappedComponent data={this.state.data} {...this.props}/>
+                    );
+                };
+            }
+        }
+
+        const MyComponentWithPersistentData = withPersistentData(MyComponent);
+
+        ReactDOM.render(
+            <MyComponent />,
+            document.getElementById('hoc')
+        )
+
+
+        function withAuth(WrappedComponent){
+            return class extends React.Component{
+                render(){
+                    if(this.props.loggedIn){
+                        return super.render();
+                    }else{
+                        return null;
+                    }
+                }
+            }
+        }
+
+        class App extends React.Component {
+
+            render() {
+
+                const style = {
+                    fontSize : "30px",
+                    backgroundColor : "blue",
+                    color:"white",
+                }
+
+                return (
+                    <div style={style}>《React 进阶之路》--高阶组件</div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>

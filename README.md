@@ -8,6 +8,7 @@ books 目录下面是书籍里的代码。
 - jsyyjc ：《JavaScript 语言精粹》
 - es6rm ：《ECMAScript 6 入门》
 - srreactjsz：《深入 React 技术栈》
+- reactjjzl: 《React 进阶之路》，
 
 ## jsjc
 
@@ -15,13 +16,6 @@ JavaScript 教程，的练习代码
 
 教程地址：https://wangdoc.com/javascript/stdlib/attributes.html
 
-## projects 
-
-projects 打算放仿写的项目
-
-## ts
-
-学习 ts 用的。
 
 ## react
 
@@ -38,6 +32,21 @@ cd 到目录执行 npm start 可以查看效果。
 教程地址：https://zh-hans.reactjs.org/tutorial/tutorial.html#setup-for-the-tutorial
 
 官方 codepen ：https://codepen.io/gaearon/pen/gWWZgR?editors=0010
+
+## react-router-demo
+
+是用 create-react-app 创建的项目工程，用来学 react-router 的。
+
+cd react-router-demo
+npm install react-router-dom
+
+## projects 
+
+projects 打算放仿写的项目
+
+## ts
+
+学习 ts 用的。
 
 ## 其他
 
