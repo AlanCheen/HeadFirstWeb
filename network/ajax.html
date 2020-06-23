@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 学习</title>
+
+    <script type="text/javascript">
+
+        var request;
+        if (window.XMLHttpRequest) {
+            //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            request = new XMLHttpRequest();
+        } else {
+            // IE6, IE5 浏览器执行代码
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        request.open("GET", 'https://api.github.com/users/alancheen/followers?page=1', true);
+
+        request.onreadystatechange = function () {
+            console.log(request.readyState);
+            console.log(request.status);
+            // 2-->3-->4
+            //2 200 --> 3 200 -->4 200
+            if (request.readyState == 4 && request.status == 200) {
+                document.getElementById("result").innerHTML = request.response;
+            }
+        }
+
+        request.onerror= function(){
+            console.log('onerror')
+            alert('onerror');
+        }
+        request.onload = function () {
+                console.log('onload')
+        }
+
+        request.addEventListener("load",function(){
+            console.log('load 2')
+        })
+
+
+
+        request.progress = function () {
+            console.log('progress update:')
+        }
+
+        request.send();
+
+    </script>
+</head>
+
+
+<body>
+
+    <div id="result">
+
+    </div>
+</body>
+
+</html>

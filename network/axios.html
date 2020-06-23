@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios 练习</title>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script type="text/javascript">
+        axios.get('http://127.0.0.1:8000')
+            .then(function (response) {
+                console.log(response.data);
+
+                document.getElementById('response').innerHTML = JSON.stringify(response.data);
+            
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+        var instance = axios.create({
+            url: 'http://127.0.0.1:8000',
+            method: 'GET'
+        });
+        instance.get('http://127.0.0.1:8000')
+            .then(function (response) {
+                console.log('instance')
+                console.log(response.data);
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+
+        // axios.get('https://api.github.com/users/alancheen/followers',
+        //     params = { page: 1 })
+        //     .then(function (response) {
+        //         console.log(response);
+        //     }).catch(function (error) {
+        //         console.log(error);
+        //     });
+
+        // axios({
+        //     url: 'https://api.github.com/users/alancheen/following?page=1',
+        // }).then(function (response) {
+        //     console.log(response);
+        // }).catch(function (error) {
+        //     console.log(error);
+        // });
+
+    </script>
+</head>
+
+<body>
+
+    <div>请求到的 Response:</div>
+    <div id="response"></div>
+
+</body>
+
+</html>

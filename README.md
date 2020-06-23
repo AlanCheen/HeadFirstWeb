@@ -9,6 +9,7 @@ books 目录下面是书籍里的代码。
 - es6rm ：《ECMAScript 6 入门》
 - srreactjsz：《深入 React 技术栈》
 - reactjjzl: 《React 进阶之路》，
+- srqc-react-and-redux：《深入浅出React和Redux》，用 create-react-app 创建的
 
 ## jsjc
 
@@ -22,6 +23,10 @@ JavaScript 教程，的练习代码
 学 react 的，代码都写在 html 的 script 标签里。
 
 由于没有 webpack 配置，只能写简单的 react。
+
+## react-demo
+
+学 react 的，但是是通过 create-react-app 创建的工程，拥有配套的环境，更加推荐。
 
 ## react-tutorial
 

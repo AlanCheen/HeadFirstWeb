@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div id="createClass"></div>
+    <div id="defaultProps"></div>
+    <div id="clock"></div>
+
+
+    <script type="text/babel">
+
+        class MyComponent extends React.Component {
+
+            render() {
+                return (
+                    <h1>Hello, world!</h1>
+                );
+            };
+        }
+
+        const Greeting = function () {
+
+            return (
+                <h1>Hello, world! Greeting！</h1>
+            );
+        }
+
+        ReactDOM.render(
+            <Greeting />,
+            document.getElementById('root')
+        );
+
+        //Uncaught TypeError: React.createClass is not a function
+        // const Button = React.createClass({
+        //     render() {
+        //         return (
+        //             <h1>Hello, Button!</h1>
+        //         );
+        //     }
+        // });
+
+        // ReactDOM.render(
+        //     <Button />,
+        //     document.getElementById('createClass')
+        // );
+
+        // const Button = React.createClass({
+        //     getDefaultProps() {
+        //         return {
+        //             color: 'blue', text: 'Confirm',
+        //         };
+        //     },
+        //     render() {
+        //         const { color, text } = this.props;
+        //         return (
+        //             <button className={`btn btn-${color}`}>
+        //                 <em>{text}</em> </button>
+        //         );
+        //     }
+        // });
+
+        class DefaultPropsComponent extends React.Component {
+
+            render() {
+                return (
+                    <div>This is default value: {this.props.content}</div>
+                );
+            };
+        }
+
+        DefaultPropsComponent.defaultProps = {
+            content: '程序亦非猿帅气喔！~'
+        }
+
+        ReactDOM.render(
+            <DefaultPropsComponent />,
+            document.getElementById('defaultProps')
+        );
+
+        class ComponentA extends React.Component {
+
+            render() {
+                return (
+                    <div>
+                        <Greeting></Greeting>
+                        <Greeting></Greeting>
+                        <Greeting></Greeting>
+                    </div>
+                );
+            };
+        }
+
+        class Clock extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {
+                    date: new Date(),
+                };
+            }
+
+            componentDidMount() {
+                this.timerID = setInterval(
+                    () => this.tick(),
+                    1000,
+                );
+            }
+
+            componentWillUnmount() {
+                clearInterval(this.timerID);
+            }
+
+            tick() {
+                this.setState({
+                     date: new Date(),
+                });
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h1>Hello clock</h1>
+                        <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+                    </div>
+                );
+            };
+        }
+
+        ReactDOM.render(
+            <Clock />,
+            document.getElementById('clock')
+        );
+
+
+    </script>
+</body>
+
+</html>

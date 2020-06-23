@@ -1,0 +1,21 @@
+.container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.item {
+    width: 120px;
+    height: 120px;
+}
+ .a1 {
+    background-color: #f0f;
+}
+
+.b1 {
+    background-color: #0ff;
+}
+
+.c1 {
+    background-color: #0f0;
+}
